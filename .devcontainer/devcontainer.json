@@ -4,14 +4,6 @@
 	"name": "Default Linux Universal",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"image": "mcr.microsoft.com/devcontainers/universal:2-linux",
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"esbenp.prettier-vscode",
-				"rodrigovallades.es7-react-js-snippets"
-			]
-		}
-	},
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
@@ -20,10 +12,52 @@
 	"forwardPorts": [3000],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "npm i"
+	"postCreateCommand": "npm i",
 
 	// Configure tool-specific properties.
-	// "customizations": {},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"esbenp.prettier-vscode",
+				"rodrigovallades.es7-react-js-snippets"
+			],
+			"settings": {
+				"editor.tabSize": 2,
+				"editor.wordWrap": "on",
+				"editor.formatOnPaste": true,
+				"editor.multiCursorModifier": "ctrlCmd",
+				"editor.linkedEditing": true,
+				"editor.formatOnSave": true,
+				"editor.defaultFormatter": "esbenp.prettier-vscode",
+				"editor.tabCompletion": "on",
+				"editor.wrappingIndent": "indent",
+				"editor.formatOnType": true,
+				"editor.suggestSelection": "first",
+				"editor.insertSpaces": false,
+				"editor.fontFamily": "'Fira Code', Consolas, 'Menlo for Powerline', 'Courier New', monospace, Consolas",
+				"editor.fontLigatures": true,
+				"editor.cursorWidth": 1,
+				"editor.cursorBlinking": "smooth",
+				"editor.cursorSmoothCaretAnimation": "on",
+				"editor.trimAutoWhitespace": false,
+				"editor.fontSize": 15,
+				"editor.bracketPairColorization.enabled": true,
+				"editor.guides.bracketPairs": "active",
+				"editor.minimap.enabled": false,
+				"editor.largeFileOptimizations": false,
+				"editor.renderControlCharacters": true,
+
+				"terminal.integrated.defaultProfile.linux": "zsh",
+				"terminal.integrated.shell.linux": "/usr/bin/zsh",
+				"terminal.integrated.cursorBlinking": true,
+				"terminal.integrated.cursorStyle": "line",
+				"terminal.integrated.defaultProfile.windows": "Ubuntu (WSL)",
+				"terminal.integrated.fontFamily": "'MesloLGM Nerd Font', Consolas, monospace",
+				"terminal.integrated.fontSize": 16,
+				"terminal.integrated.fontWeight": "normal"
+			}
+		}
+	}
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "root"
