@@ -28,7 +28,8 @@
 				"mhutchie.git-graph",
 				"eamodio.gitlens",
 				"GitHub.vscode-github-actions",
-				"robertz.code-snapshot"
+				"robertz.code-snapshot",
+				"ms-azuretools.vscode-docker"
 			],
 			"settings": {
 				"editor.tabSize": 2,
