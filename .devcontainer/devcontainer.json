@@ -3,23 +3,32 @@
 {
 	"name": "Default Linux Universal",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/universal:2-linux",
-
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
-
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [3000],
-
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"forwardPorts": [
+		5000
+	],
+	"mounts": [
+		"source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
+		"source=devcontainer-mjemni,target=/commandhistory,type=volume"
+	],
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "npm i",
-
 	// Configure tool-specific properties.
 	"customizations": {
 		"vscode": {
 			"extensions": [
 				"esbenp.prettier-vscode",
-				"rodrigovallades.es7-react-js-snippets"
+				"rodrigovallades.es7-react-js-snippets",
+				"BracketPairColorDLW.bracket-pair-color-dlw",
+				"mhutchie.git-graph",
+				"eamodio.gitlens",
+				"GitHub.vscode-github-actions",
+				"robertz.code-snapshot"
 			],
 			"settings": {
 				"editor.tabSize": 2,
@@ -46,19 +55,37 @@
 				"editor.minimap.enabled": false,
 				"editor.largeFileOptimizations": false,
 				"editor.renderControlCharacters": true,
-
-				"terminal.integrated.defaultProfile.linux": "zsh",
-				"terminal.integrated.shell.linux": "/usr/bin/zsh",
+				"editor.openEditors.visible": 0,
 				"terminal.integrated.cursorBlinking": true,
 				"terminal.integrated.cursorStyle": "line",
 				"terminal.integrated.defaultProfile.windows": "Ubuntu (WSL)",
 				"terminal.integrated.fontFamily": "'MesloLGM Nerd Font', Consolas, monospace",
 				"terminal.integrated.fontSize": 16,
-				"terminal.integrated.fontWeight": "normal"
+				"terminal.integrated.fontWeight": "normal",
+				"terminal.integrated.defaultProfile.linux": "zsh",
+				"terminal.integrated.profiles.linux": {
+					"bash": {
+						"path": "bash",
+						"icon": "terminal-bash"
+					},
+					"zsh": {
+						"path": "zsh"
+					},
+					"fish": {
+						"path": "fish"
+					},
+					"tmux": {
+						"path": "tmux",
+						"icon": "terminal-tmux"
+					},
+					"pwsh": {
+						"path": "pwsh",
+						"icon": "terminal-powershell"
+					}
+				}
 			}
 		}
 	}
-
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "root"
 }
